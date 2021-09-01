@@ -23,6 +23,11 @@ $_POST['ipamusername'] = $User->strip_input_tags ($_POST['ipamusername']);
 
 # Authenticate
 if( !empty($_POST['ipamusername']) && !empty($_POST['ipampassword']) )  {
+	# sync user with AD
+        $user = $Database->findObject("users", "username", $_POST['ipamusername']);
+        if($user === null){
+		$Result->show("danger", 'Your account is unknown to us, please <a href="/adsync/sync.php?uname='.$_POST['ipamusername'].'">click here to sync with Active Directory</a>', true);
+	}
 
 	# initialize array
 	$ipampassword = array();

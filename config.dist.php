@@ -176,3 +176,6 @@ $config['footer_message']         = "";                     // Custom message in
  * default: '/usr/bin/mysqldump'
  */
 // $mysqldump_cli_binary = '/usr/bin/mysqldump';
+
+$ADautopull = "FakeAD";
+$ADautopullID = 3;
